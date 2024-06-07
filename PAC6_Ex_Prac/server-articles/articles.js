@@ -13,7 +13,7 @@ const articles = [
   {
     id: 2,
     name: 'The Beatles: Sgt. Pepper`s Lonely Hearts Club Band',
-    imageUrl: 'assets/records/beatles.webp',
+    imageUrl: '',
     price: 36.99,
     isOnSale: false,
     quantityInCart: 0

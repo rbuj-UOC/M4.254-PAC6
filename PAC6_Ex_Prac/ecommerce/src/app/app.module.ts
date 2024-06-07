@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArticleItemComponent } from './articles/article-item/article-item.component';
 import { ArticleListComponent } from './articles/article-list/article-list.component';
 import { ArticleNewReactiveComponent } from './articles/article-new-reactive/article-new-reactive.component';
+import { ImagePipe } from '../shared/image.pipe';
 import { NavbarComponent } from './articles/navbar/navbar.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NavbarComponent } from './articles/navbar/navbar.component';
     ArticleItemComponent,
     ArticleListComponent,
     ArticleNewReactiveComponent,
+    ImagePipe,
     NavbarComponent
   ],
   imports: [
