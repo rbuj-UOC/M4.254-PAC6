@@ -3,8 +3,8 @@
     <button class="menu-item" [class]="active == 1 ? 'active' : ''" (click)="setSelectedItem(1)">Nou article reactiu</button>
 </div>
 <div *ngIf="active == 0">
-    <app-article-list></app-article-list>
+    <app-article-list #articleList></app-article-list>
 </div>
 <div *ngIf="active == 1">
-    <app-article-new-reactive></app-article-new-reactive>
+    <app-article-new-reactive (articleCreated)="articleList.onCreate()"></app-article-new-reactive>
 </div>

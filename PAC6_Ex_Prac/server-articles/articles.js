@@ -4,26 +4,26 @@ const router = express.Router();
 const articles = [
   {
     id: 1,
-    name: 'Article1',
-    imageUrl: 'assets/images/article1.jpg',
-    price: 19.95,
-    isOnSale: false,
-    quantityInCart: 0
-  },
-  {
-    id: 2,
-    name: 'Article2',
-    imageUrl: '',
-    price: 6.15,
+    name: 'Aerosmith: Permanent Vacation',
+    imageUrl: 'assets/records/permanent-vacation.webp',
+    price: 31.99,
     isOnSale: true,
     quantityInCart: 0
   },
   {
-    id: 3,
-    name: 'Article3',
-    imageUrl: 'assets/images/article3.jpg',
-    price: 31.9,
+    id: 2,
+    name: 'The Beatles: Sgt. Pepper`s Lonely Hearts Club Band',
+    imageUrl: 'assets/records/beatles.webp',
+    price: 36.99,
     isOnSale: false,
+    quantityInCart: 0
+  },
+  {
+    id: 3,
+    name: 'Pulp Fiction',
+    imageUrl: 'assets/records/pulp-fiction.webp',
+    price: 25.99,
+    isOnSale: true,
     quantityInCart: 0
   }
 ];

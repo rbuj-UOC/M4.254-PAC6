@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Article } from '../../model/article';
 import { NameArticleValidator } from '../../../shared/name-article-validator.directive';
@@ -11,6 +11,8 @@ import { ArticleService } from '../../serveis/article.service';
 })
 
 export class ArticleNewReactiveComponent {
+
+  @Output() private articleCreated: EventEmitter<void> = new EventEmitter();
 
   public message = '';
   public articleForm: FormGroup;
@@ -42,7 +44,13 @@ export class ArticleNewReactiveComponent {
     } else {
       const article: Article = this.articleForm.value;
       this.message = '';
-      this.articleService.createArticle(article);
+      this.articleService.createArticle(article).subscribe((res) => {
+        this.message = 'Item successfully created.';
+        console.log('Triggered event emitter');
+        this.articleCreated.next();
+      }, (err) => {
+        this.message = 'No es pot crear l`element, torneu-ho a provar.';
+      });
     }
   }
 }
