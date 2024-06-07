@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Article } from '../../model/article';
 import { NameArticleValidator } from '../../../shared/name-article-validator.directive';
+import { ArticleService } from '../../serveis/article.service';
 
 @Component({
   selector: 'app-article-new-reactive',
@@ -14,7 +15,7 @@ export class ArticleNewReactiveComponent {
   public message = '';
   public articleForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private articleService: ArticleService, private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -30,7 +31,7 @@ export class ArticleNewReactiveComponent {
     this.articleForm = this.fb.group({
       name: ['', [Validators.required, NameArticleValidator(/(Prova|Test|Mock|Fake)/)]],
       price: [0, [Validators.required, Validators.min(0.1)]],
-      imageUrl: ['', [Validators.required, Validators.pattern('^http(s?)\://[a-zA-Z0-9\.]+\.[a-zA-Z]{2,3}/[a-zA-Z0-9\.\-]+$')]],
+      imageUrl: ['', [Validators.required, Validators.pattern('^http(s?)\:\/\/[a-zA-Z0-9\.]+(\.[a-zA-Z]{2,3})?(\:[0-9]+)?(\/[a-zA-Z0-9\.\-]+)+')]],
       isOnSale: false
     });
   }
@@ -41,7 +42,7 @@ export class ArticleNewReactiveComponent {
     } else {
       const article: Article = this.articleForm.value;
       this.message = '';
-      console.log('Creating article', article);
+      this.articleService.createArticle(article);
     }
   }
 }

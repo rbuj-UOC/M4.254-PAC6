@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Article } from "../../model/article";
 import { ArticleQuantityChange } from '../../model/article-quantity-change';
+import { Observable } from 'rxjs/internal/Observable';
+import { ArticleService } from '../../serveis/article.service';
 
 @Component({
   selector: 'app-article-list',
@@ -8,7 +10,7 @@ import { ArticleQuantityChange } from '../../model/article-quantity-change';
     <div class="article-list">
       <app-article-item [article]="articleObj"
                         (quantityChange)="onQuantityChange($event)"
-                        *ngFor="let articleObj of articles"></app-article-item>
+                        *ngFor="let articleObj of articles$ | async"></app-article-item>
     </div>
   `,
   styles: `
@@ -20,43 +22,15 @@ import { ArticleQuantityChange } from '../../model/article-quantity-change';
 })
 export class ArticleListComponent {
 
-  public articles: Array<Article>;
+  public articles$: Observable<Article[]>;
 
-  constructor() { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
-    this.articles = [
-      {
-        id: 1,
-        name: 'Aerosmith: Permanent Vacation',
-        imageUrl: 'assets/records/permanent-vacation.webp',
-        price: 31.99,
-        isOnSale: true,
-        quantityInCart: 0
-      },
-      {
-        id: 2,
-        name: 'The Beatles: Sgt. Pepper`s Lonely Hearts Club Band',
-        imageUrl: 'assets/records/beatles.webp',
-        price: 36.99,
-        isOnSale: false,
-        quantityInCart: 0
-      },
-      {
-        id: 3,
-        name: 'Pulp Fiction',
-        imageUrl: 'assets/records/pulp-fiction.webp',
-        price: 25.99,
-        isOnSale: true,
-        quantityInCart: 0
-      }
-    ];
+    this.articles$ = this.articleService.getArticles();
   }
 
   onQuantityChange(change: ArticleQuantityChange) {
-    const product = this.articles.find(art => {
-      return change.article.id === art.id;
-    });
-    product.quantityInCart += change.changeInQuantity;
+    this.articleService.changeQuantity(change.article.id, change.changeInQuantity);
   }
 }
