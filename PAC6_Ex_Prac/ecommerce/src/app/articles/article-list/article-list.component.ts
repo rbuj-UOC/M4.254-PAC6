@@ -11,7 +11,7 @@ import { startWith, merge, debounceTime, distinctUntilChanged, switchMap } from 
   template: `
     <div class="search-box">
       <input type="text"
-             placeholder="Search products"
+             placeholder="Cercar articles"
              name="searchBox"
              [(ngModel)]="searchTerm"
              (keyup)="search()"/>
