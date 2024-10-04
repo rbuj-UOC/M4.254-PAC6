@@ -7,17 +7,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ArticleService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getArticles(query: string): Observable<Article[]> {
     return this.http.get<Article[]>('/api/articles', {
-      params: {q: query}
+      params: { q: query }
     });
   }
 
   changeQuantity(id: number, changeInQuantity: number): Observable<any> {
-    return this.http.patch('/api/articles/' + id, {changeInQuantity: changeInQuantity});
+    return this.http.patch('/api/articles/' + id, {
+      changeInQuantity: changeInQuantity
+    });
   }
 
   createArticle(article: Article): Observable<Article> {
