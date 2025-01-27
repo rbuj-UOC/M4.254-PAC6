@@ -14,6 +14,8 @@ import {
 
 @Component({
   selector: 'app-article-list',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: `
     <div class="search-box">
       <input

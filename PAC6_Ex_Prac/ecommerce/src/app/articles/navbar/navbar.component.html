@@ -1,10 +1,10 @@
 <div class="navmenu">
-    <button class="menu-item" [class]="active == 0 ? 'active' : ''" (click)="setSelectedItem(0)">Articles</button>
-    <button class="menu-item" [class]="active == 1 ? 'active' : ''" (click)="setSelectedItem(1)">Nou article</button>
+    <button class="menu-item" [class]="active === 0 ? 'active' : ''" (click)="setSelectedItem(0)">Articles</button>
+    <button class="menu-item" [class]="active === 1 ? 'active' : ''" (click)="setSelectedItem(1)">Nou article</button>
 </div>
-<div *ngIf="active == 0">
+<div *ngIf="active === 0">
     <app-article-list #articleList></app-article-list>
 </div>
-<div *ngIf="active == 1">
+<div *ngIf="active === 1">
     <app-article-new-reactive (articleCreated)="articleList.onCreate()"></app-article-new-reactive>
 </div>

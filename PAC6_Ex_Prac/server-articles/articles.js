@@ -5,7 +5,7 @@ const articles = [
   {
     id: 1,
     name: 'Aerosmith: Permanent Vacation',
-    imageUrl: 'assets/records/permanent-vacation.webp',
+    imageUrl: '/records/permanent-vacation.webp',
     price: 31.99,
     isOnSale: true,
     quantityInCart: 0
@@ -21,7 +21,7 @@ const articles = [
   {
     id: 3,
     name: 'Pulp Fiction',
-    imageUrl: 'assets/records/pulp-fiction.webp',
+    imageUrl: '/records/pulp-fiction.webp',
     price: 25.99,
     isOnSale: true,
     quantityInCart: 0
