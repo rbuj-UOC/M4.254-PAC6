@@ -2,15 +2,13 @@
   <button
     class="menu-item"
     [class]="active === 0 ? 'active' : ''"
-    (click)="setSelectedItem(0)"
-  >
+    (click)="setSelectedItem(0)">
     Articles
   </button>
   <button
     class="menu-item"
     [class]="active === 1 ? 'active' : ''"
-    (click)="setSelectedItem(1)"
-  >
+    (click)="setSelectedItem(1)">
     Nou article
   </button>
 </div>
@@ -19,6 +17,5 @@
 </div>
 <div *ngIf="active === 1">
   <app-article-new-reactive
-    (articleCreated)="articleList.onCreate()"
-  ></app-article-new-reactive>
+    (articleCreated)="articleList.onCreate()"></app-article-new-reactive>
 </div>
