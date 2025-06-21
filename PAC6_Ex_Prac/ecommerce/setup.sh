@@ -9,6 +9,9 @@ cd ${PROJECT_NAME}
 ng add @angular-eslint/schematics --defaults  --skip-confirmation
 npm install --save-dev prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier @awmottaz/prettier-plugin-void-html
 
+# troubleshoot the version of @awmottaz/prettier-plugin-void-html
+npm i -D @awmottaz/prettier-plugin-void-html@latest
+
 # overwrite / create config files
 cat << EOF > eslint.config.js
 // @ts-check
