@@ -81,4 +81,6 @@ ng g c articles/article-list --inline-style --inline-template
 ng g c articles/article-item
 ng g c articles/article-new-reactive
 ng g c articles/navbar
+
 ng g s services/article-service
+ng g p shared/image

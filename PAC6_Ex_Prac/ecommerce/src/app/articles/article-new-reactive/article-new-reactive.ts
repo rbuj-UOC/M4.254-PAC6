@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NameArticleValidator } from '../../../shared/name-article-validator.directive';
 import { Article } from '../../model/article';
 import { ArticleService } from '../../services/article-service';
+import { NameArticleValidator } from '../../shared/name-article-validator.directive';
 
 @Component({
   selector: 'app-article-new-reactive',
