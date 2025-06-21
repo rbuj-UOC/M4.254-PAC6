@@ -1,9 +1,9 @@
 import {
+  ChangeDetectionStrategy,
   Component,
-  Input,
-  Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  Input,
+  Output
 } from '@angular/core';
 import { Article } from '../../model/article';
 import { ArticleQuantityChange } from '../../model/article-quantity-change';
@@ -12,11 +12,11 @@ import { ArticleQuantityChange } from '../../model/article-quantity-change';
   selector: 'app-article-item',
   // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
-  templateUrl: './article-item.component.html',
-  styleUrl: './article-item.component.css',
+  templateUrl: './article-item.html',
+  styleUrl: './article-item.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleItemComponent {
+export class ArticleItem {
   @Input() public article: Article;
   @Output() private quantityChange = new EventEmitter<ArticleQuantityChange>();
 

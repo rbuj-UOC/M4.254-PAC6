@@ -12,10 +12,13 @@
     Nou article
   </button>
 </div>
-<div *ngIf="active === 0">
-  <app-article-list #articleList></app-article-list>
-</div>
-<div *ngIf="active === 1">
-  <app-article-new-reactive
-    (articleCreated)="articleList.onCreate()"></app-article-new-reactive>
-</div>
+@if (active === 0) {
+  <div>
+    <app-article-list #articleList></app-article-list>
+  </div>
+} @else {
+  <div>
+    <app-article-new-reactive
+      (articleCreated)="articleList.onCreate()"></app-article-new-reactive>
+  </div>
+}

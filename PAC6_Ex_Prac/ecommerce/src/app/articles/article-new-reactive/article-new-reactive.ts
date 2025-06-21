@@ -1,26 +1,26 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Article } from '../../model/article';
 import { NameArticleValidator } from '../../../shared/name-article-validator.directive';
-import { ArticleService } from '../../serveis/article.service';
+import { Article } from '../../model/article';
+import { ArticleService } from '../../services/article-service';
 
 @Component({
   selector: 'app-article-new-reactive',
   // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
-  templateUrl: './article-new-reactive.component.html',
-  styleUrl: './article-new-reactive.component.css'
+  templateUrl: './article-new-reactive.html',
+  styleUrl: './article-new-reactive.css'
 })
-export class ArticleNewReactiveComponent {
+export class ArticleNewReactive {
+  private articleService = inject(ArticleService);
+  private fb = inject(FormBuilder);
+
   @Output() private articleCreated = new EventEmitter<void>();
 
   public message = '';
   public articleForm: FormGroup;
 
-  constructor(
-    private articleService: ArticleService,
-    private fb: FormBuilder
-  ) {
+  constructor() {
     this.createForm();
   }
 
